@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Hands On</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" > 
+</head>
+<body>
+   <div id="swart">
+ <div class="float-container">
+    <div class="float-child heading">
+       <p><h1>HANDS ON</h1></p>
+   </div>
+   <div class="float-child caption">
+      <p> <h3>A perfect way to make your handwritten assignments</h3></p>
+    </div>
+   <div class="css-typing">
+      <div id="intro">
+         <p>Tired of assignments??</p>
+          <p>We present you a solution to convert text assignments into your handwritten assignments.</p>
+         <p>Stay tuned we will be rolling out other amazing features to make studies more interesting!!</p>
+      </div>
+   </div>
+   <div class="container-image">
+    <figure>
+      <div id="compare"></div>
+    </figure>
+    <input oninput="beforeAfter()" onchange="beforeAfter()" type="range" min="0" max="100" value="50" id="slider"/>
+  </div>
+    <div class="float-child mytext">
+ <p><h3>STEP1: Take a printout of <a href="{{ url_for('static', filename='sample.pdf') }}" download="sample">SAMPLE.pdf</a><h3>
+<h3>STEP2: Fill the image as per the format provided below.(NOTE: Not following format will lead to incorrect output).</h3>
+<h3>STEP3:Upload your font.</h3>
+ </p>
+</div>
+<div class="float-child green">
+   <div class="flex-container">
+      <div class="flex-child container-img">
+       <img src="static/inpT.jpg" id="font-img"> 
+     </div>
+        <div class="flex-child container-box">
+           <div class="wrapper-2">
+              <header>UPLOAD YOUR FONT</header>
+           <form method=post enctype=multipart/form-data  id="myfontForm">
+               <input type="file" name="file-2" class="file-input-2" accept="image/png, image/jpg, image/jpeg" hidden >
+      
+                 <i class="fas fa-cloud-upload-alt"></i>
+                  <p>Browse File to Upload</p>
+           </form>
+           <section class="progress-area-font"></section>
+           <section class="uploaded-area-font"></section>
+           <input type=submit value=Upload id="process-font" form="myfontForm">
+           <input type="reset" value=Reset id="process-reset-font" form="myfontForm">
+           </div>
+        </div>
+   </div>
+</div>
+<div class="float-child mytext-2">
+   <p><h3>UPLOAD YOUR DOCUMENT BELOW (DESIRED FORMATS: .txt,.pdf):</h3></p> 
+   <p id="font-txt"><h6>FONT:- {{test}}</h6></p> 
+</div>
+<div class="float-child blue">
+   <div class="wrapper">
+      <header>CONVERTOR</header>
+   <form method=post enctype=multipart/form-data action="" id="myForm">
+       <input type="file" name="file" class="file-input" accept=".pdf,.txt" hidden>
+         <i class="fas fa-cloud-upload-alt"></i>
+          <p>Browse File to Upload</p>
+   </form>
+   <section class="progress-area"></section>
+   <section class="uploaded-area"></section>
+   <input type=submit value=Upload id="process" form="myForm">
+   <input type="reset" value=Reset id="process-reset" form="myForm">
+</div>
+</div>
+  </div>
+<div class="float-child red">
+   <div class="cont-heading"><h4>Contributors</h4></div>
+   <div class="container">
+      <div class="cell cell-1"><p>
+         <img src="static/githublogo.png">
+         
+      <a href="https://github.com/Pulkitmahajan01"><H6>PULKIT MAHAJAN</H6></a></p></div>
+      <div class="cell cell-2">
+         <img src="static/githublogo.png">
+      <a href="https://github.com/rasacharjee"><H6>RAJARSHI ACHARJEE</H6></a></p>
+      </div>
+      <div class="cell cell-3">
+         <img src="static/githublogo.png">   
+      <a href="https://github.com/Ritesh-Ag"><H6>RITESH AGRAWAL</H6></a></p>
+      </div>
+    </div>
+</div>
+ </div>
+
+<script type="text/javascript"
+        src="{{ url_for('static', filename='script.js') }}"></script>
+
+        
+<div class="container">
+   {% block content %}
+   {% endblock %}
+ </div>
+</body>
+</html>
